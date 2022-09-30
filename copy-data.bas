@@ -1,3 +1,35 @@
+Private Sub CommandButton1_Click()
+
+Dim path As String
+Dim fname As String
+
+path = "C:\Users\cristian.gomez\Desktop\"
+fname = Range("N13")
+'fname = invno & " - " & Range("A4")
+
+Application.DisplayAlerts = False
+
+Hoja1.Copy
+ActiveSheet.Shapes("CommandButton1").Delete
+ActiveSheet.Shapes("CommandButton2").Delete
+    
+    With ActiveWorkbook
+        .SaveAs Filename:=path & fname, FileFormat:=51
+        .Close
+    End With
+
+MsgBox "Archivo creado en el Escritorio: " + fname
+
+'MsgBox "Your next invoice number is " & invno + 1
+
+'Range("D3") = invno + 1
+
+ThisWorkbook.Save
+
+Application.DisplayAlerts = True
+
+End Sub
+
 Sub Get_Data_From_File3()
 Dim FileToOpen As Variant
 Dim OpenBook As Workbook
@@ -49,3 +81,21 @@ Application.ScreenUpdating = False
 Application.ScreenUpdating = False
 
 End Sub
+    
+Private Sub CommandButton3_Click()
+    
+    'Dim LibroActual As Workbook
+        
+    'For Each LibroActual In Workbooks
+    
+     '   LibroActual.Close SaveChanges:=False
+    Application.Quit
+    ThisWorkbook.Close SaveChanges:=False
+     'Next LibroActual
+    'ThisWorkbook.Close SaveChanges:=False
+    'ThisWorkbook.Close
+    'Application.DisplayAlerts = False
+    
+End Sub
+
+    
