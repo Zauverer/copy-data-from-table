@@ -30,7 +30,7 @@ Application.DisplayAlerts = True
 
 End Sub
 
-Sub Get_Data_From_File3()
+Private Sub CommandButton2_Click()
 Dim FileToOpen As Variant
 Dim OpenBook As Workbook
 
@@ -43,59 +43,77 @@ Application.ScreenUpdating = False
     If FileToOpen <> False Then
         Set OpenBook = Application.Workbooks.Open(FileToOpen)
         
-        'Name
-        OpenBook.Worksheets("Completar datos").Range("D3").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N13")
+        'Nombre CC
+        OpenBook.Worksheets("Completar datos").Range("D3").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N13").PasteSpecial (xlPasteValues)
         
-        'Name company
-        OpenBook.Worksheets("Completar datos").Range("D3").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N14")
+        'Nombre CC
+        OpenBook.Worksheets("Completar datos").Range("D3").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N14").PasteSpecial (xlPasteValues)
         
-        'Id Compnay
-        OpenBook.Worksheets("Completar datos").Range("D5").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N15")
+        'Rut CC
+        OpenBook.Worksheets("Completar datos").Range("D5").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N15").PasteSpecial (xlPasteValues)
         
-        'Address
-        OpenBook.Worksheets("Completar datos").Range("D10").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N16")
+        'Domicilio
+        OpenBook.Worksheets("Completar datos").Range("D10").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N16").PasteSpecial (xlPasteValues)
         
-        'Location
-        OpenBook.Worksheets("Completar datos").Range("D11").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N17")
+        'Comuna
+        OpenBook.Worksheets("Completar datos").Range("D11").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N17").PasteSpecial (xlPasteValues)
         
-        'Legal representative
-        OpenBook.Worksheets("Completar datos").Range("D6").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N23")
+        'Rep. Legal
+        OpenBook.Worksheets("Completar datos").Range("D6").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N23").PasteSpecial (xlPasteValues)
         
-        'Id Legal representative
-        OpenBook.Worksheets("Completar datos").Range("D7").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N24")
+        'Rut Rep. Legal
+        OpenBook.Worksheets("Completar datos").Range("D7").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N24").PasteSpecial (xlPasteValues)
  
-        'Email
-        OpenBook.Worksheets("Completar datos").Range("D21").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N41")
-        
-        'Bank 
-        OpenBook.Worksheets("Completar datos").Range("D18").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N42")
-    
-        'Bank Account
-        OpenBook.Worksheets("Completar datos").Range("D20").Copy Workbooks("Nueva Ficha Proveedores.xlsx").Worksheets("T3").Range("N43")
+        'B correo electrónico
+        OpenBook.Worksheets("Completar datos").Range("D21").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N31").PasteSpecial (xlPasteValues)
        
-              
+        'Rut Rep. Legal
+        OpenBook.Worksheets("Completar datos").Range("D7").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N32").PasteSpecial (xlPasteValues)
+        
+        'B correo electrónico
+        OpenBook.Worksheets("Completar datos").Range("D21").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N39").PasteSpecial (xlPasteValues)
+        
+        'B Nombre Banco
+        OpenBook.Worksheets("Completar datos").Range("D18").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N40").PasteSpecial (xlPasteValues)
+    
+        'B N de cuenta
+        OpenBook.Worksheets("Completar datos").Range("D20").Copy
+        Workbooks("Nueva Ficha Proveedores.xlsm").Worksheets("T3").Range("N41").PasteSpecial (xlPasteValues)
+        
         OpenBook.Close False
     
     End If
+    
 
 Application.ScreenUpdating = False
-
 End Sub
-    
+
 Private Sub CommandButton3_Click()
     
     'Dim LibroActual As Workbook
-        
     'For Each LibroActual In Workbooks
-    
      '   LibroActual.Close SaveChanges:=False
-    Application.Quit
-    ThisWorkbook.Close SaveChanges:=False
      'Next LibroActual
     'ThisWorkbook.Close SaveChanges:=False
     'ThisWorkbook.Close
     'Application.DisplayAlerts = False
+   Dim wb As Workbook
+   Set wb = ActiveWorkbook
+   Range("M:M").Copy Range("N:N")
+   wb.Save
+   Application.Quit
+   wb.Close
     
 End Sub
-
     
